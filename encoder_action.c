@@ -20,10 +20,8 @@ static keyevent_t encoder_event[ENCODERS];
 static keypos_t encoder_cw[ENCODERS] = ENCODERS_CW_KEY;
 static keypos_t encoder_ccw[ENCODERS] = ENCODERS_CCW_KEY;
 
-
 void encoder_action_unregister(void) {
-    int index;
-    for (index = 0; index < ENCODERS; ++index) {
+    for (int index = 0; index < ENCODERS; ++index) {
         if (IS_PRESSED(encoder_event[index])) {
             encoder_event[index].pressed = false;
             encoder_event[index].time = (timer_read() | 1);
